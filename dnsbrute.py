@@ -4,13 +4,17 @@ import dns.resolver
 resolver = dns.resolver.Resolver()
 
 try:
-	with open("wordlist.txt", "r") as arq:
+	alvo = sys.argv[1]
+	wordlist = sys.argv[2]
+except:
+	print("Está faltando argumentos")
+try:
+	with open(wordlist, "r") as arq:
 		subdominios = arq.read().splitlines()
 except:
 	print("Erro ao abrir arquivo")
-	sys.exit(1)
-      
-alvo = 'bancocn.com'
+	sys.exit()
+
 
 for subdominio in subdominios:
     try:
