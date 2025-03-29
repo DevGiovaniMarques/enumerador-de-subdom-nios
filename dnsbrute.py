@@ -1,6 +1,5 @@
 import dns.resolver
 
-//testando pull
 resolver = dns.resolver.Resolver()
 wordlist = ['www', 'mail', 'ftp', 'webmail', 'admin', 'test', 'dev', 'blog', 'api', 'secure','shop','advanced','dvwa']
 alvo = 'bancocn.com'
