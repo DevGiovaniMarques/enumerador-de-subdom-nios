@@ -1,10 +1,12 @@
 import dns.resolver
 
 resolver = dns.resolver.Resolver()
-wordlist = ['www', 'mail', 'ftp', 'webmail', 'admin', 'test', 'dev', 'blog', 'api', 'secure','shop','advanced','dvwa']
+
+with open("wordlist.txt","r") as arq:
+	subdominios = arq.read().splitlines()
 alvo = 'bancocn.com'
 
-for subdominio in wordlist:
+for subdominio in subdominios:
     try:
         sub_alvo = "{}.{}".format(subdominio, alvo)
         resultados = resolver.resolve(sub_alvo, 'A')
@@ -12,5 +14,3 @@ for subdominio in wordlist:
             print("{} -> {}".format(sub_alvo, resultado))
     except:
         pass
-
-
