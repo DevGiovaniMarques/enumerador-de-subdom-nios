@@ -1,9 +1,12 @@
 import dns.resolver
 
 resolver = dns.resolver.Resolver()
-
-with open("wordlist.txt","r") as arq:
-	subdominios = arq.read().splitlines()
+try:
+	with open("wordlist.txt","r") as arq:
+		subdominios = arq.read().splitlines()
+except:
+	print("Erro ao abrir arquivo")
+	
 alvo = 'bancocn.com'
 
 for subdominio in subdominios:
